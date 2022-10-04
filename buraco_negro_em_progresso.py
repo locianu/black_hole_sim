@@ -134,4 +134,52 @@ def main():
                 disp(r)
                 
                 x = [r theta p_r p_theta phi]
-                curve(k,:)=x
+                curve(k,:) = x #dúvida nisso
+                
+                #x=[r theta p_r p_theta];
+                #disp(x);
+                #disp(r);
+                #disp(theta);
+                #disp(["k=",k]);
+            
+            #Transform to euclidean coordinates and plot3
+            [n,m]=size(curve)
+            A=a*ones(n,1)
+            
+            PHIZ=ones(n,1)
+    
+            def Boyer2Cart(r,theta,phi):
+                return [math.sqrt(r.^2+A.^2).*sin(theta).*cos(phi),math.sqrt(r.^2+A.^2).*sin(theta).*sin(phi),r.*cos(theta)]
+                #porque os pontos nesse? é coisa do matlab?
+            
+            cart=Boyer2Cart(curve(:,1),curve(:,2),curve(:,5)) #porque os ':'?
+    """%         disp([i,j]);
+    %         pause;
+          
+    %         formatSpec = '%4.2f \t %4.2f \t %4.2f\n';
+    %         filename = sprintf('plot%d.txt', fig);
+    %         fileID = fopen(filename,'w');
+    %         fprintf(fileID,formatSpec,cart(:,1),cart(:,2),cart(:,3));  % The format string is applied to each element of a
+    %         fclose(fileID);
+    %         fig = fig+1
+    """        
+           
+            plot3(cart(:,1),cart(:,2),cart(:,3))
+            
+            """
+    %         filename = sprintf('plot%d.png', fig);
+    %         saveas(figi, filename);
+    %         fig = fig+1;
+             """       
+"""    %close (hbar);
+    % if plot_type == 1
+    %     hold off
+    % end
+    
+    %plot_r = curve(1,:)
+    %plot_theta = curve(2,:)
+    %polar(plot_theta,plot_r)
+    %A = [plot_theta',plot_r']
+    
+    %disp(r);
+    %disp(theta);"""
