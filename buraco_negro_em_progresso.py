@@ -31,12 +31,12 @@ def main():
 
 #plot black sphere for the blackhole if plot_type = 1 is chosen and hold on the plot
 
-    if plot_type == 1:
+    """if plot_type == 1:
         [x, y, z] = sphere
         colormap([0,0,0])
         surf(R * x, R * y, R * z)
         axis equal
-        hold on #isso aqui provavelmente não é feito assim em python
+        hold on #isso aqui provavelmente não é feito assim em python"""
     
     #dimens�es da janela observacional
     window_height = 0.00001
@@ -83,13 +83,13 @@ def main():
             def f5(r,theta,p_r,p_theta):
                 return (a * (-a * L + r * R * E) + L * pow(1 / math.sin(theta), 2) * Delta(r)) / (Delta(r) * Sigma(r,theta))
             
-            x_0 = [r theta p_r p_theta phi]
+            x_0 = [r, theta, p_r, p_theta, phi]
             curve = x_0 #curve é uma função do matlab ou é só pra facilitar a chamada depois?
             
             k = 1
             Nk = 20000
             
-            while ((R<r)&&(r<radius_celestial_sphere)&&(k<Nk)):
+            while R<r && r<radius_celestial_sphere && k<Nk:
                 #clean coordinates values
                 curve(k, 2) = curve(k, 2) % (2 * math.pi)
                 curve(k, 5) = curve(k, 5) % (2 * math.pi)
