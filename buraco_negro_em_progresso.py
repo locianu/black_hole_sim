@@ -14,13 +14,6 @@ def drDelta(r):
     return 2 * r - R
 
 def main():
-
-    plot_type = 1
-    resolution_height = 2 #resoluções da tela, em pixels
-    resolution_width = 2
-    
-    tStart = tic
-    
     G = 1
     M = 1 #massa do buraco negro
     a = 0.6 #momento angular
@@ -28,23 +21,6 @@ def main():
     radius_celestial_sphere = 80
     aDiskMin = 2 * R
     aDiskMax = 5 * R
-
-#plot black sphere for the blackhole if plot_type = 1 is chosen and hold on the plot
-
-    """if plot_type == 1:
-        [x, y, z] = sphere
-        colormap([0,0,0])
-        surf(R * x, R * y, R * z)
-        axis equal
-        hold on #isso aqui provavelmente não é feito assim em python"""
-    
-    #dimens�es da janela observacional
-    window_height = 0.00001
-    window_width = (resolution_width / resolution_height) * window_height
-    distance_from_window = -1.4e-4
-
-    coords_no_aDisk = np.zeros(resolution_height,resolution_width,3)
-    coords_aDisk = np.zeros(resolution_height,resolution_width,3)
     
     stepsize = 0.1 #passo do rk4
     
